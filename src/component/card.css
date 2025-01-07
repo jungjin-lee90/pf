@@ -1,0 +1,24 @@
+.card {
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 20px;
+    padding: 20px 40px;
+    margin: 30px;
+    overflow: hidden;
+    background: white;
+    color: black;
+    text-align: center;
+  }
+  
+  @media screen and (min-width: 280px) and (max-width: 400px) {
+    .card {
+      margin: 10px 20px;
+      padding: 10px 20px;
+    }
+  }
+  
+  @media screen and (min-width: 401px) and (max-width: 750px) {
+    .card {
+      margin: 10px 20px;
+    }
+  }
