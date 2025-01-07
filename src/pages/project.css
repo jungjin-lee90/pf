@@ -1,0 +1,37 @@
+.project {
+    margin: 0;
+    /* background-color: #e4cd6d; */
+    background: linear-gradient(#ebe996, #ebf9ac);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .project-card-wrapper {
+    width: 900px;
+    padding: 40px;
+  }
+  .project-card {
+    padding: 40px;
+  }
+  .project-card > h2,
+  .project-card > h4 {
+    text-align: center;
+  }
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  article {
+    margin: 0px 15px;
+  }
+  .link-wrapper {
+    background-color: #ebe996;
+    padding: 0 10px;
+    width: auto;
+    border-radius: 10px;
+    font-weight: bold;
+  }

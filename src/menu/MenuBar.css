@@ -1,0 +1,43 @@
+.menu-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: beige;
+    z-index: 1;
+  }
+   
+  .menu-contents {
+    width: 100%;
+    display: flex;
+    padding: 20px 30px;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+   
+  .menu-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .menu-title > a {
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+    text-decoration: none;
+   
+    font-family: "Dela Gothic One", sans-serif;
+  }
+   
+  .menu-item {
+    margin: 0 35px;
+  }
+   
+  .menu-item > a {
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+  }
