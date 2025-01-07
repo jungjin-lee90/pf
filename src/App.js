@@ -3,7 +3,7 @@ import MenuBar from './menu/MenuBar';
 import { useRef } from 'react';
 import Project from './pages/project';
 import Home from './pages/home';
-//import Skills from './routePage/skills';
+import Skills from './pages/skills';
 
 function App() {
   const HomeRef = useRef(null);
@@ -17,6 +17,7 @@ function App() {
     <div id="app-container">
       <MenuBar move={moveHandler}/>
       <Home />
+      <Skills />
       <Project ref={HomeRef} />
     </div>
   );
