@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import Project from './pages/project';
 import Home from './pages/home';
 import Skills from './pages/skills';
+import Qualification from "./pages/qualification";
 
 function App() {
   const HomeRef = useRef(null);
@@ -19,6 +20,7 @@ function App() {
       <Home />
       <Skills />
       <Project ref={HomeRef} />
+      <Qualification />
     </div>
   );
 }

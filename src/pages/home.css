@@ -1,0 +1,118 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    padding: 100px 0 40px 0;
+  
+    align-items: center;
+    text-align: center;
+  }
+  
+  .home > h1 {
+    margin-top: 80px;
+  }
+  
+  .title {
+    margin: 90px 0 40px 0;
+  }
+  
+  .title > h1 {
+    font-size: calc(20px + 5vw);
+    letter-spacing: 0.05em;
+    animation-iteration-count: 1;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+    30% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+  
+  .title > h2 {
+    font-size: calc(10px + 0.5vw);
+    color: #f7d238;
+    letter-spacing: calc(10px + 0.5vw);
+    animation: fadeInUp 6s;
+    animation-iteration-count: 1;
+  }
+  
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    30% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .description {
+    bottom: 30px;
+    font-size: calc(13px + 0.4vw);
+    word-break: keep-all;
+  }
+  
+  .description > p {
+    margin-bottom: 0;
+    animation: fadein 8s;
+    animation-iteration-count: 1;
+    color: rgba(229, 229, 240, 0.808);
+  }
+  
+  @keyframes moving-arrow {
+    from {
+      margin-top: 0px;
+    }
+    to {
+      margin-top: 10px;
+    }
+  }
+  
+  .scroll {
+    height: 50px;
+    margin-top: 100px;
+  }
+  
+  .scroll > img {
+    cursor: pointer;
+    width: calc(10px + 0.5vw);
+    animation: moving-arrow 1s;
+    animation-delay: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  @media screen and (min-width: 280px) and (max-width: 400px) {
+    .title {
+      margin: 20px 0;
+    }
+  
+    .scroll {
+      margin-top: 100px;
+    }
+  }
+  
+  @media screen and (min-width: 401px) and (max-width: 650px) {
+    .title {
+      margin: 50px 0;
+    }
+  
+    .scroll {
+      margin-top: 250px;
+    }
+  }

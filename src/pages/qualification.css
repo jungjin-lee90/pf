@@ -1,0 +1,41 @@
+.edu {
+    margin: 0;
+    /* background-color: #e4cd6d; */
+    background: linear-gradient(#ebf9ac, #9e9d78);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edu-card,
+.cert-card {
+    width: 300px;
+    padding: 25px;
+    margin: 10px 30px;
+}
+
+.edu-card > h3 {
+  font-weight: bold;
+}
+
+.edu-card > img,
+.cert-item > img {
+  width: 130px;
+  height: auto;
+}
+
+.cert-item {
+  margin-bottom: 30px;
+}
+
+.edu-card-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+.edu-title {
+    margin: 0 0 40px 0;
+}

@@ -2,40 +2,42 @@ import "./skills.css";
 import Card from '../component/card';
 
 const Skills = () => {
-  return (
-    <div className="skills">
-      <h1 className="skills-title">
-        <a name="skills">Tech Skills</a>
-      </h1>
-      <Card className="project-card">
+    return (
+      <div className="skills">
+        <h1 className="skills-title">
+          <a name="skills">Tech Skills</a>
+        </h1>
         <div className="skill-card-wrapper">
-        <h2 className="frontend-title">Frontend</h2>
-        <div className="skill-img-wrapper">
-            <div className="skill-div">
-
-            <p>HTML5</p>
+          <Card className="frontend-card">
+            <h2 className="frontend-title">Frontend</h2>
+            <div className="skill-img-wrapper">
+              <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "assets/images/html.png"} />
+                <p>HTML5</p>
+              </div>
+              <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "assets/images/css.png"} />
+                <p>CSS3</p>
+              </div>
+              <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "assets/images/js.png"} />
+                <p>JAVASCRIPT</p>
+              </div>
+              <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "assets/images/react.png"} />
+                <p>REACT</p>
+              </div>
             </div>
-            <div className="skill-div">
-
-            <p>CSS3</p>
-            </div>
-            <div className="skill-div">
-
-            <p>JAVASCRIPT</p>
-            </div>
-            <div className="skill-div">
-
-            <p>REACT</p>
-            </div>
+          </Card>
+          <Card className="backend-card">
+            <h2 className="backend-title">Backend</h2>
+          </Card>
+          <Card className="etc-card">
+            <h2 className="etc-title">Etc</h2>
+          </Card>
         </div>
+      </div>
+    );
+  };
 
-        <h2 className="backend-title">Backend</h2>
-
-        <h2 className="etc-title">Etc</h2>
-        </div>
-      </Card>
-      
-    </div>
-  );
-};
 export default Skills;

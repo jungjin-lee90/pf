@@ -3,28 +3,27 @@ import { forwardRef } from 'react';
 import Card from '../component/card';
 
 const Project = forwardRef((props, ref) => {
-    console.log("project " + ref);
-
     return (
         <div className="project">
-            <h1 className="project-title">
+           
+                <h1 className="project-title">
                 <a name="project">Project</a>
-            </h1>
-            <Card className="project-card">
+                </h1>
+                <Card className="project-card">
                 <div className="project-card-wrapper">
                     <h2 className="project-title">🌓Dream note</h2>
                     <h4>개인 프로젝트</h4>
                     <section>
                         <article>
-                        <img src={process.env.PUBLIC_URL + "/logo192.png"} />
-                        <p className="link-wrapper">Github</p>
-                        <a href="https://github.com/Yoonyesol/Dream_note">Dream_note</a>
-                        <p className="link-wrapper">배포 링크</p>
-                        <a href="https://dreamnote-9f9f2.web.app">
-                            dreamnote-9f9f2.web.app
-                        </a>
-                        <p className="link-wrapper">개발 기록</p>
-                        <a href="https://tinyurl.com/ylvw7xjd">florescene.tistory.com</a>
+                            <img src={process.env.PUBLIC_URL + "/logo192.png"} />
+                            <p className="link-wrapper">Github</p>
+                            <a href="https://github.com/Yoonyesol/Dream_note">Dream_note</a>
+                            <p className="link-wrapper">배포 링크</p>
+                            <a href="https://dreamnote-9f9f2.web.app">
+                                dreamnote-9f9f2.web.app
+                            </a>
+                            <p className="link-wrapper">개발 기록</p>
+                            <a href="https://tinyurl.com/ylvw7xjd">florescene.tistory.com</a>
                         </article>
                         <article>
                             <h3>프로젝트 소개</h3>

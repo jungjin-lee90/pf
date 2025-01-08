@@ -1,19 +1,44 @@
+import React, { forwardRef, useState, useEffect } from "react";
 import "./home.css";
- 
-const Home = () => {
+
+const Home = forwardRef((props, ref) => {
+  const [typedText, setTypedText] = useState("");
+
+  useEffect(() => {
+    const typeNextText = () => {
+      const currentText = "LEE JUNG JIN";
+      const delay = 150; // 글자 나타나는 간격(ms)
+
+      for (let i = 0; i <= currentText.length; i++) {
+        setTimeout(() => {
+          setTypedText(currentText.substring(0, i));
+        }, i * delay);
+      }
+    };
+
+    typeNextText();
+  }, []);
+
   return (
-    <div className="home">
-        <a name="home">Home</a>
-        <h2>I interested in JAVASCRIPT</h2>
-        <img src={"https://blog.kakaocdn.net/dn/R74HZ/btsLn9rpYx1/n7wrhjqaQ8rmn2bhDNfeUk/img.png"} />
-      
-        <h3>이정진</h3>
-        <div>
-            <p>상상을 실제 코드로 구현하는 과정을 즐깁니다.</p>
-            <p>지식의 습득과 성장에 열정을 가지고 있습니다.</p>
+    <div className="home" ref={ref}>
+      <div className="container home-container">
+        <div className="title">
+          <h1>{typedText && <span>{typedText}</span>}</h1>
+          <h2>FRONT-END DEV.</h2>
         </div>
+        <div className="description">
+          <p>끊임없는 도전을 통해 문제를 해결하는 것을 즐깁니다.</p>
+          <p>지식의 습득과 성장에 열정을 가지고 있습니다.</p>
+        </div>
+      </div>
+      <div className="scroll">
+        <img
+          src={process.env.PUBLIC_URL + "/assets/images/down.png"}
+          onClick={props.moveToArc}
+        />
+      </div>
     </div>
   );
-};
- 
+});
+
 export default Home;
