@@ -71,7 +71,7 @@
     margin-bottom: 0;
     animation: fadein 8s;
     animation-iteration-count: 1;
-    color: rgba(229, 229, 240, 0.808);
+    color: rgba(0, 0, 0, 0.508);
   }
   
   @keyframes moving-arrow {
