@@ -5,6 +5,7 @@ import Project from './pages/project';
 import Home from './pages/home';
 import Skills from './pages/skills';
 import Qualification from "./pages/qualification";
+import Contact from "./pages/contact";
 
 function App() {
   const HomeRef = useRef(null);

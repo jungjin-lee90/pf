@@ -1,0 +1,49 @@
+ 
+  .contact-card {
+    text-align: left;
+  }
+  
+  .contents > input {
+    border: none;
+    border-bottom: 1px solid grey;
+  }
+  
+  .contents > textarea {
+    height: 100px;
+  }
+  
+  .contents > input,
+  .contents > textarea {
+    width: calc(400px + 4vw);
+    margin-bottom: 20px;
+  
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input:focus,
+  textarea:focus {
+    outline: none;
+  }
+  
+  .send-btn {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .send-btn > button {
+    background-color: #f2dd68;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  @media screen and (min-width: 280px) and (max-width: 600px) {
+    .contents > input,
+    .contents > textarea {
+      width: 60vw;
+    }
+  }

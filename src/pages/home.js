@@ -32,10 +32,7 @@ const Home = forwardRef((props, ref) => {
         </div>
       </div>
       <div className="scroll">
-        <img
-          src={process.env.PUBLIC_URL + "/assets/images/down.png"}
-          onClick={props.moveToArc}
-        />
+      
       </div>
     </div>
   );
