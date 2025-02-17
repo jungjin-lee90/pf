@@ -24,7 +24,7 @@ const Home = forwardRef((props, ref) => {
       <div className="container home-container">
         <div className="title">
           <h1>{typedText && <span>{typedText}</span>}</h1>
-          <h2>FRONT-END DEV.</h2>
+          <h2>BACK-END DEV.</h2>
         </div>
         <div className="description">
           <p>끊임없는 도전을 통해 문제를 해결하는 것을 즐깁니다.</p>
