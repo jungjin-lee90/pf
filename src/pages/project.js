@@ -4,7 +4,7 @@ import Card from '../component/card';
 import { projectItems } from "../component/ProjectContents";
 
 const projectImage = [
-    { project1: [0, 1, 2, 3, 4] },
+    { project1: [0, 1] },
     { project2: [0, 1, 2] },
     { project3: [0, 1, 2, 3, 4, 5] },
     { project4: [0, 1, 2, 3, 4] },
@@ -94,12 +94,14 @@ const Project = forwardRef((props, ref) => {
                                 <article className="info-article">
                                 <p className="link-wrapper">기술스택</p>
                                 <p>{project.techStack}</p>
-                                <p className="link-wrapper">Github</p>
-                                <a href={project.githubLink}>{project.title}</a>
+                                <p className="link-wrapper">프로젝트 기간</p>
+                                <p>{project.date}</p>
+                                {/*
                                 <p className="link-wrapper">배포 링크</p>
                                 <a href={project.deployLink}>{project.deployLink}</a>
                                 <p className="link-wrapper">개발 기록</p>
                                 <a href={project.blogLink}>{project.blogLink}</a>
+                                */}
                                 </article>
                                 <article className="detail-article">
                                 <h3>프로젝트 소개</h3>
@@ -110,7 +112,7 @@ const Project = forwardRef((props, ref) => {
                                     <li>{it}</li>
                                     ))}
                                 </p>
-                                <h3>회고 및 배운 점</h3>
+                                <h3>프로젝트 세부내용</h3>
                                 <p>
                                     {project.retrospective.map((it) => (
                                     <li>{it}</li>

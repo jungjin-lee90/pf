@@ -1,6 +1,3 @@
-.project {
-}
-
 .main-title {
   display: flex;
   background-color: #f5f3c1;
@@ -156,11 +153,7 @@ article {
     flex-direction: column;
     margin-top: 20px;
   }
-
-  article {
-    /* text-align: center; */
-  }
-
+  
   .info-article {
     width: auto;
     margin-bottom: 35px;
