@@ -2,7 +2,6 @@
     margin: 0;
     /* background-color: #e4cd6d; */
     background: linear-gradient(#ebf9ac, #f5f3c1);
-    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -19,7 +18,7 @@
   .frontend-card,
   .backend-card,
   .etc-card {
-    width: 300px;
+    width: 12vw;
     padding: 25px;
     margin: 10px 30px;
   }
