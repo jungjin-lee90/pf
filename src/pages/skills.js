@@ -35,6 +35,10 @@ const Skills = () => {
                 <img src={process.env.PUBLIC_URL + "/assets/images/Shell.jpeg"} />
                 <p>ShellScript</p>
             </div>
+            <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "/assets/images/delphi.png"} />
+                <p>Delphi</p>
+            </div>
           </Card>
           <Card className="etc-card">
             <h2 className="etc-title">Etc</h2>
@@ -49,6 +53,10 @@ const Skills = () => {
             <div className="skill-div">
                 <img src={process.env.PUBLIC_URL + "/assets/images/mysql.png"} />
                 <p>MySQL</p>
+            </div>
+            <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "/assets/images/linux.png"} />
+                <p>Linux</p>
             </div>
           </Card>
         </div>

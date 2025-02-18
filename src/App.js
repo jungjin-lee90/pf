@@ -1,28 +1,23 @@
 import './App.css';
 import MenuBar from './menu/MenuBar';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Project from './pages/project';
 import Home from './pages/home';
 import Skills from './pages/skills';
 import Qualification from "./pages/qualification";
 import Contact from "./pages/contact";
+import ScrollBtn from './component/ScrollBtn';
 
 function App() {
-  const HomeRef = useRef(null);
-  
-  const moveHandler = () => {
-    console.log(HomeRef);
-    HomeRef.current.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div id="app-container">
-      <MenuBar move={moveHandler}/>
+      <MenuBar/>
       <Home />
       <Skills />
-      <Project ref={HomeRef} />
-      <Qualification />
-    </div>
+      <Project/>
+      <Qualification />     
+      <ScrollBtn /> 
+  </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { forwardRef, useState, useEffect } from "react";
 import "./home.css";
 
-const Home = forwardRef((props, ref) => {
+const Home = () => {
   const [typedText, setTypedText] = useState("");
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Home = forwardRef((props, ref) => {
   }, []);
 
   return (
-    <div className="home" ref={ref}>
+    <div className="home">
       <div className="container home-container">
         <div className="title">
           <h1>{typedText && <span>{typedText}</span>}</h1>
@@ -36,6 +36,6 @@ const Home = forwardRef((props, ref) => {
       </div>
     </div>
   );
-});
+};
 
 export default Home;

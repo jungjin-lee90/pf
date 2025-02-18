@@ -2,9 +2,9 @@ import { forwardRef } from "react";
 import Card from "../component/card";
 import "./qualification.css";
 
-const Qualification = forwardRef((props, ref) => {
+const Qualification = () => {
   return (
-    <div className="edu" ref={ref}>
+    <div className="edu" >
         <Card className="edu-main">
             <h1 className="edu-title">
                 <a name="edu">Qualification</a>
@@ -35,6 +35,6 @@ const Qualification = forwardRef((props, ref) => {
         </Card>
     </div>
   );
-});
+};
 
 export default Qualification;

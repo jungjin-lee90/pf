@@ -5,12 +5,12 @@ import { projectItems } from "../component/ProjectContents";
 
 const projectImage = [
     { project1: [0, 1] },
-    { project2: [0, 1, 2] },
-    { project3: [0, 1, 2, 3, 4, 5] },
-    { project4: [0, 1, 2, 3, 4] },
+    { project2: [0] },
+    { project3: [0] },
+    { project4: [0] },
   ];
 
-const Project = forwardRef((props, ref) => {
+const Project = () => {
     const [imgIndexes, setImgIndexes] = useState(
         projectImage.map((project) => 0)
     );
@@ -129,6 +129,6 @@ const Project = forwardRef((props, ref) => {
             </div>
         </div>
     );
-});
+};
 
 export default Project;
