@@ -16,7 +16,7 @@ const MenuBar = () => {
             <a href="#project">Project</a>
           </div>
           <div className="menu-item">
-            <a href="#edu">Cert</a>
+            <a href="#edu">Qual</a>
           </div>
           <div class="menu-icon">
             <button onClick={() => window.open("https://dlwjdwls90.tistory.com/", "_blank", "noopener,noreferrer")} >
