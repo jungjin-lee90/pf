@@ -59,6 +59,21 @@ const Skills = () => {
                 <p>Linux</p>
             </div>
           </Card>
+          <Card className="etc-card">
+            <h2 className="etc-title">Tools</h2>
+            <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "/assets/images/git.png"} />
+                <p>Git</p>
+            </div>
+            <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "/assets/images/svn.png"} />
+                <p>Svn</p>
+            </div>
+            <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "/assets/images/jira.jpeg"} />
+                <p>Jira</p>
+            </div>
+          </Card>
         </div>
       </div>
     );

@@ -49,4 +49,5 @@
   .menu-icon > button {
     background-color: beige;
     border: none;
+    cursor: pointer;
   }
