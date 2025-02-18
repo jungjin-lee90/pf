@@ -10,12 +10,6 @@ const Qualification = () => {
                 <a name="edu">Qualification</a>
             </h1>
             <div className="edu-card-wrapper">
-                <Card className="edu-card">
-                <h2 className="edu-title">Education</h2>
-                <img src={process.env.PUBLIC_URL + "/assets/images/inha.svg"} />
-                <h3>tttt</h3>
-                <h4> (2017.02 ~ 2023.08)</h4>
-                </Card>
                 <Card className="cert-card">
                 <h2 className="cert-title">Certification</h2>
                 <div className="cert-items-container">

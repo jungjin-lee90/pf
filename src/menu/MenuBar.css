@@ -41,3 +41,12 @@
     cursor: pointer;
     text-decoration: none;
   }
+
+  .menu-icon {
+    display: flex;
+  }
+
+  .menu-icon > button {
+    background-color: beige;
+    border: none;
+  }

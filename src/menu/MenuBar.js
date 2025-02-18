@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./MenuBar.css";
  
 const MenuBar = () => {
@@ -15,10 +16,12 @@ const MenuBar = () => {
             <a href="#project">Project</a>
           </div>
           <div className="menu-item">
-            <a href="#edu">Edu & Cert</a>
+            <a href="#edu">Cert</a>
           </div>
-          <div className="menu-item">
-            <a href="#contact">Contact</a>
+          <div class="menu-icon">
+            <button onClick={() => window.open("https://dlwjdwls90.tistory.com/", "_blank", "noopener,noreferrer")} >
+              <img src={process.env.PUBLIC_URL + "/assets/images/tistory.png"} alt="Button Icon" width="20" height="20" />
+            </button>
           </div>
         </div>
       </div>
