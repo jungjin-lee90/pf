@@ -7,7 +7,7 @@ const Qualification = () => {
     <div className="edu" >
         <Card className="edu-main">
             <h1 className="edu-title">
-                <a name="edu">Qualification</a>
+                <a name="edu">📝 Qualification</a>
             </h1>
             <div className="edu-card-wrapper">
                 <Card className="cert-card">

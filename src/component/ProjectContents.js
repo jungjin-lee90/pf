@@ -2,7 +2,7 @@ const url = `${process.env.PUBLIC_URL}/assets/images/`;
 
 export const projectItems = [
   {
-    title: "KT 엔지니어링플랫폼",
+    title: "🌐 KT 엔지니어링플랫폼",
     category: "협동 프로젝트",
     imageUrl: [
       `${url}main.png`,
@@ -31,7 +31,7 @@ export const projectItems = [
     date: "2023.07~현재",
   },
   {
-    title: "NEW그룹웨어 프로젝트",
+    title: "💬 NEW그룹웨어 프로젝트",
     category: "협동 프로젝트",
     imageUrl: [
       `${url}S-Talk.png`,
@@ -51,7 +51,7 @@ export const projectItems = [
   },
 
   {
-    title: "Diagnostic Monitor",
+    title: "💻 Diagnostic Monitor",
     category: "협동 프로젝트",
     imageUrl: [
       `${url}dreamnote11.gif`,
@@ -100,7 +100,7 @@ export const projectItems = [
     date: "2017.07~2022.10(퇴사)",
   },
   {
-    title: "MCPTT",
+    title: "📳 MCPTT",
     category: "협동 프로젝트",
     imageUrl: [
       `${url}stopwatch2.gif`,

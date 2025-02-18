@@ -49,7 +49,7 @@ const Project = () => {
     return (
         <div className="project">
             <div className="project-card-wrapper">
-                <h1 className="main-title-a"><a name="project">Project</a></h1>
+                <h1 className="main-title-a"><a name="project">🗂 Project</a></h1>
                 {projectItems.map((project, index) => {
                     return (
                         <Card className="project-card" key={index}>
