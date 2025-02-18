@@ -58,9 +58,13 @@ const Skills = () => {
                 <img src={process.env.PUBLIC_URL + "/assets/images/linux.png"} />
                 <p>Linux</p>
             </div>
+            <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "/assets/images/docker.png"} />
+                <p>Docker</p>
+            </div>
           </Card>
-          <Card className="etc-card">
-            <h2 className="etc-title">Tools</h2>
+          <Card className="tools-card">
+            <h2 className="tools-title">Tools</h2>
             <div className="skill-div">
                 <img src={process.env.PUBLIC_URL + "/assets/images/git.png"} />
                 <p>Git</p>

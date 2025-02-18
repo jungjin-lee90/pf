@@ -17,14 +17,16 @@
   }
   .frontend-card,
   .backend-card,
-  .etc-card {
-    width: 12vw;
-    padding: 25px;
-    margin: 10px 30px;
+  .etc-card,
+  .tools-card {
+    width: 10vw;
+    padding: 10px;
+    margin: 5px 20px;
   }
   .frontend-title,
   .backend-title,
-  .etc-title {
+  .etc-title,
+  .tools-title {
     margin: 0 0 20px 0;
   }
   .skill-div {

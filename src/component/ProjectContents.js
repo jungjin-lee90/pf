@@ -26,6 +26,7 @@ export const projectItems = [
         "노드 간의 통신에는 NAT를 이용하였습니다. Private Subnet의 위치한 노드와 Public Subnet에 위치한 노드 간의 통신이 필요했기 때문에 Public Subnet을 이용한 NAT를 만들고, Private Subnet Routing Table에 해당 NAT를 등록하여 같은 VPC 내의 서로 다른 두 Subnet의 노드가 통신할 수 있도록 해두었습니다.",
         "웹에서 AWS로의 자원 및 서비스 생성에는 AWS CLI를 사용하였습니다. EBS와 EIP, NAT, Routing Table 등 서비스에 필요한 자원은 스크립트에 AWS CLI를 사용하여 사용자는 버튼을 통해 간단히 생성할 수 있도록 하였습니다.",
         "서울 리전의 노드에서 오하이오 리전 노드로의 명령 실행을 위해 SSM을 사용하였습니다. SSM 외에 보편적으로 사용할 수 있는 ssh나 curl 등의 방식도 있었지만, 해당 인프라에서는 ssh, curl 모두 사용할 수 없었기에 SSM을 사용하여, AWS 인스턴스 간의 명령 전송이 가능하게 했습니다.",
+        "관리서버에서는 Docker 내에 sge 스케줄러 설치하여, 노드간 작업에 대한 스케줄을 관리하였습니다.",
     ],
     techStack: "AWS, Terraform, Shell Script, C/C++, PHP, Java Script, Linux",
     date: "2023.07~현재",
@@ -54,7 +55,8 @@ export const projectItems = [
     title: "💻 Diagnostic Monitor",
     category: "협동 프로젝트",
     imageUrl: [
-      `${url}dreamnote11.gif`,
+      `${url}dm1.png`,
+      `${url}dm2.png`,
     ],
     description: "DM은 통신 계측 장비로 단말기를 통해 전달 받은 데이터를 분석하여 현재 통신 상태를 UI를 통해 고객에게 제공하는 솔루션입니다.",
     features: [
@@ -103,7 +105,7 @@ export const projectItems = [
     title: "📳 MCPTT",
     category: "협동 프로젝트",
     imageUrl: [
-      `${url}stopwatch2.gif`,
+      `${url}MCPTT1.png`,
     ],
     description:
       "단말기와 연동하여, 솔루션을 통한 단말기 제어 및 패킷 분석을 통한 동작 제어",
@@ -121,5 +123,23 @@ export const projectItems = [
     ],
     techStack: "Delphi, C++, Jira",
     date: "2017.12~2022.10(퇴사)",
+  },
+  {
+    title: "VQML",
+    category: "개인 프로젝트",
+    imageUrl: [
+      `${url}VQML.png`,
+    ],
+    description: 
+      "VQML : OpenCV 이용하여 영상 캡쳐 후 영상 화질 측정.",
+    features: [
+      "OpenCV를 통한 영상측정",
+    ],
+    retrospective: [
+      "VQML은 영상의 화질과 퀄리티를 측정해주는 프로그램입니다.",
+      "OpenCV를 통해 영상을 캡처해 avi파일을 만들어 만들어진 영상파일 경로를 VQML로 전달하면 해당 영상에 대한 측정 결과값이 나오는 프로그램입니다. 또한 옵션에 따라 파일을 FTP를 통해 특정 서버에 전송하거나 결과값을 파일로 출력해주는 역할도 합니다.",
+    ],
+    techStack: "OpenCV, Delphi",
+    date: "2022.03~2022.08",
   },
 ];

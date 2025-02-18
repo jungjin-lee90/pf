@@ -6,8 +6,9 @@ import { projectItems } from "../component/ProjectContents";
 const projectImage = [
     { project1: [0, 1] },
     { project2: [0] },
-    { project3: [0] },
+    { project3: [0, 1] },
     { project4: [0] },
+    { project5: [0] },
   ];
 
 const Project = () => {
