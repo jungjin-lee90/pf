@@ -4,7 +4,7 @@ import Card from '../component/card';
 import { projectItems } from "../component/ProjectContents";
 
 const projectImage = [
-    { project1: [0, 1] },
+    { project1: [0, 1, 2, 3, 4] },
     { project2: [0] },
     { project3: [0, 1] },
     { project4: [0] },
@@ -93,32 +93,32 @@ const Project = () => {
                             </div>
                             <section>
                                 <article className="info-article">
-                                <p className="link-wrapper">기술스택</p>
-                                <p>{project.techStack}</p>
-                                <p className="link-wrapper">프로젝트 기간</p>
-                                <p>{project.date}</p>
-                                {/*
-                                <p className="link-wrapper">배포 링크</p>
-                                <a href={project.deployLink}>{project.deployLink}</a>
-                                <p className="link-wrapper">개발 기록</p>
-                                <a href={project.blogLink}>{project.blogLink}</a>
-                                */}
+                                  <p className="link-wrapper">기술스택</p>
+                                  <p>{project.techStack}</p>
+                                  <p className="link-wrapper">프로젝트 기간</p>
+                                  <p>{project.date}</p>
+                                  {/*
+                                  <p className="link-wrapper">배포 링크</p>
+                                  <a href={project.deployLink}>{project.deployLink}</a>
+                                  <p className="link-wrapper">개발 기록</p>
+                                  <a href={project.blogLink}>{project.blogLink}</a>
+                                  */}
                                 </article>
                                 <article className="detail-article">
-                                <h3>프로젝트 소개</h3>
-                                <p>{project.description}</p>
-                                <h3>주요 기능</h3>
-                                <p>
-                                    {project.features.map((it) => (
-                                    <li>{it}</li>
-                                    ))}
-                                </p>
-                                <h3>프로젝트 세부내용</h3>
-                                <p>
-                                    {project.retrospective.map((it) => (
-                                    <li>{it}</li>
-                                    ))}
-                                </p>
+                                  <h3>프로젝트 소개</h3>
+                                  <p>{project.description}</p>
+                                  <h3>주요 기능</h3>
+                                  <p>
+                                      {project.features.map((it) => (
+                                      <li>{it}</li>
+                                      ))}
+                                  </p>
+                                  <h3>프로젝트 세부내용</h3>
+                                  <p>
+                                      {project.retrospective.map((it) => (
+                                      <li>{it}</li>
+                                      ))}
+                                  </p>
                                 </article>
                             </section>
                             <div className="project-order">

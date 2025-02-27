@@ -7,6 +7,9 @@ export const projectItems = [
     imageUrl: [
       `${url}main.png`,
       `${url}job.png`,
+      `${url}설계3.png`,
+      `${url}설계2.png`,
+      `${url}설계1.png`,
     ],
     description:  [
         "웹 사이트를 통해 HPC(슈퍼컴퓨팅) 환경을 제공해주는 서비스 입니다. 작업제출을 통해 원하는 Spec의 원하는 수의 노드(인스턴스)를 만들어주고 해당 노드들을 클러스터링하여 HPC 환경을 제공합니다.",
