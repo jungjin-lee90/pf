@@ -19,8 +19,12 @@ const MenuBar = () => {
             <a href="#edu">Qual</a>
           </div>
           <div class="menu-icon">
-            <button onClick={() => window.open("https://dlwjdwls90.tistory.com/", "_blank", "noopener,noreferrer")} >
-              <img src={process.env.PUBLIC_URL + "/assets/images/tistory.png"} alt="Button Icon" width="20" height="20" />
+            <button onClick={() => window.open("https://dlwjdwls90.tistory.com/", "_blank", "noopener,noreferrer")}>
+              <div className="menu-item">
+                <a>Tech Blog
+                  <img src={process.env.PUBLIC_URL + "/assets/images/tistory.png"} alt="Button Icon" width="20" height="20" />
+                </a>
+              </div>  
             </button>
           </div>
         </div>
