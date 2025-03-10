@@ -8,9 +8,6 @@
     background: white;
     color: black;
     text-align: center;
-    border: 5px solid;
-    border-image: linear-gradient(to right, #72726d, #222120);
-    border-image-slice: 1;
   }
   
   @media screen and (min-width: 280px) and (max-width: 400px) {
