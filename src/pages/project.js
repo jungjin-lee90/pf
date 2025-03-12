@@ -4,7 +4,7 @@ import Card from '../component/card';
 import { projectItems } from "../component/ProjectContents";
 
 const projectImage = [
-    { project1: [0, 1, 2, 3, 4] },
+    { project1: [0, 1, 2, 3, 4, 5, 6] },
     { project2: [0] },
     { project3: [0, 1] },
     { project4: [0] },
