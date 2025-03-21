@@ -7,7 +7,7 @@ const Home = () => {
   useEffect(() => {
     const typeNextText = () => {
       const currentText = "LEE JUNG JIN";
-      const delay = 150; // 글자 나타나는 간격(ms)
+      const delay = 155; // 글자 나타나는 간격(ms)
 
       for (let i = 0; i <= currentText.length; i++) {
         setTimeout(() => {
