@@ -1,6 +1,9 @@
 # 1단계: 빌드 환경
-FROM node:18 AS build
+FROM node:20 AS build
 WORKDIR /app
+
+# corepack 활성화하여 yarn 사용
+RUN corepack enable
 
 # package.json과 yarn.lock을 복사하고 패키지 설치
 COPY package.json yarn.lock ./

@@ -1,0 +1,27 @@
+name: Docker Image CI/CD
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 코드가 푸시될 때 실행
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }} # 위에서 만든 username 값
+        password: ${{ secrets.DOCKERHUB_TOKEN }} # 위에서 만든 Token 값
+
+    - name: Build Docker Image
+      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:latest . # 이전 글에서 docker build를 위해 수행했던 커맨드
+
+    - name: Push Docker Image to Docker Hub
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:latest # 이전 글에서 docker push를 위해 수행했던 커맨드
+
