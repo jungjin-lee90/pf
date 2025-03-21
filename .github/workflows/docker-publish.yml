@@ -27,7 +27,7 @@ jobs:
     # tag 달기 추가
     - name: Get short SHA
       id: vars
-      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      run: echo "SHA_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV # set-output 사용 종료로 인한 변경
 
     - name: Build Docker Image with Version Tag
       run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ steps.vars.outputs.sha_short }} .
