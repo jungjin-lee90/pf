@@ -24,4 +24,12 @@ jobs:
 
     - name: Push Docker Image to Docker Hub
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:latest # 이전 글에서 docker push를 위해 수행했던 커맨드
+    # tag 달기 추가
+    - name: Get short SHA
+      id: vars
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
+    - name: Build Docker Image with Version Tag
+      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ steps.vars.outputs.sha_short }} .
+
 
