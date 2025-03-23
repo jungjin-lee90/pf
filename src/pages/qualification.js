@@ -30,7 +30,7 @@ const Qualification = () => {
                     </div>
                     <div className="cert-item">
                     {/*<img src={process.env.PUBLIC_URL + "/assets/images/opic.webp"} />*/}
-                    <p className="link-wrapper">AWS SAA</p>
+                    <p className="link-wrapper">AWS Certified Solutions Architect</p>
                     <h4>(AWS. 2023.11)</h4>
                     </div>
                 </div>
