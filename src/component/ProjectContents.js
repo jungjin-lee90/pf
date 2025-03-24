@@ -52,7 +52,7 @@ export const projectItems = [
     "retrospective": [
       "기존 수동 배포 과정에서 발생하던 인적 오류와 시간을 절감하기 위해 CI/CD 파이프라인 구축을 결정했습니다.",
       "GitHub Actions의 다양한 기능을 활용하여 빌드, 테스트, 배포 과정을 자동화하였으며, 이를 통해 개발 효율성과 코드 품질을 향상시켰습니다.",
-      "Kubernetes 클러스터 환경에서의 배포 자동화를 통해 확장성과 안정성을 확보하였습니다."
+      "Kubernetes 클러스터 환경에서의 배포 자동화를 통해 확장성과 안정성을 확보하였습니다.",
     ],
     "techStack": "GitHub Actions, Docker, Kubernetes, YAML, Bash",
     "date": "2025.03"
