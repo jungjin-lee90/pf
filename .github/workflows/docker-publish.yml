@@ -44,7 +44,7 @@ jobs:
         git remote add origin https://x-access-token:${GH_TOKEN}@github.com/jungjin-lee90/pf.git
 
         git add kubernetes/k8s-deployment.yaml
-        git commit -m "Update image tag to ${{ env.SHA_SHORT }}"
+        git commit -m "Update image tag to ${{ env.SHA_SHORT }} [skip ci]" # 여기서 무한 루프에 빠진다. commit 하면 자동으로 CI/CD 진행하기 때문 [skip ci]로 git action skip
         git push origin main
 
     - name: Build Docker Image with Version Tag
