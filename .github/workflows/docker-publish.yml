@@ -31,9 +31,12 @@ jobs:
 
     # Git 커밋 & 푸시
     - name: Commit and push updated manifest
+      env:
+        GH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
+        git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/jungjin-lee90/pf.git
         git add kubernetes/k8s-deployment.yaml
         git commit -m "Update image tag to ${{ env.SHA_SHORT }}"
         git push origin main
