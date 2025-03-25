@@ -3,41 +3,54 @@ name: Docker Image CI/CD
 on:
   push:
     branches:
-      - main
+      - main  # main 브랜치에 코드가 푸시될 때 실행
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }} # 위에서 만든 username 값
+        password: ${{ secrets.DOCKERHUB_TOKEN }} # 위에서 만든 Token 값
 
-      - name: Get short SHA
-        id: vars
-        run: echo "SHA_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    # tag 달기 추가
+    - name: Get short SHA
+      id: vars
+      run: echo "SHA_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV # set-output 사용 종료로 인한 변경
+    
+    # Deployment YAML의 이미지 태그 변경
+    - name: Update image tag in deployment YAML
+      run: |
+        sed -i "s|image: jungjinlee90/github_jj:.*|image: jungjinlee90/github_jj:${{ env.SHA_SHORT }}|" kubernetes/k8s-deployment.yaml
 
-      - name: Build Docker Image with Version Tag
-        run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ env.SHA_SHORT }} .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ env.SHA_SHORT }}
+    # Git 커밋 & 푸시
+    - name: Commit and push updated manifest
+      env:
+        GH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Update image tag in deployment YAML
-        run: |
-          sed -i "s|image: jungjinlee90/github_jj:.*|image: jungjinlee90/github_jj:${{ env.SHA_SHORT }}|" kubernetes/k8s-deployment.yaml
+        # 기존 origin 제거하고 재설정
+        git remote remove origin
+        git remote add origin https://x-access-token:${GH_TOKEN}@github.com/jungjin-lee90/pf.git
 
-      - name: Commit and push updated manifest
-        env:
-          GH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/jungjin-lee90/pf.git
-          git add kubernetes/k8s-deployment.yaml
-          git commit -m "Update image tag to ${{ env.SHA_SHORT }}"
-          git push origin main
+        git add kubernetes/k8s-deployment.yaml
+        git commit -m "Update image tag to ${{ env.SHA_SHORT }}"
+        git push origin main
+
+
+    - name: Build Docker Image with Version Tag
+      run: |
+        echo "Building Docker Image with tag: ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ env.SHA_SHORT }}"
+        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ env.SHA_SHORT }} .
+
+    - name: Push Docker Image to Docker Hub
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ env.SHA_SHORT }}
+
