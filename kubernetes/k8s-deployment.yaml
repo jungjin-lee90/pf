@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: jungjinlee90/github_jj:latest  # Docker Hub에서 가져오기
+        image: jungjinlee90/github_jj:1a7db30
         ports:
         - containerPort: 80
 
