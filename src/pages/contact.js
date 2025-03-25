@@ -16,7 +16,7 @@ const Contact = forwardRef((props, ref) => {
             <input type="text" name="name" />
             <h3>Email</h3>
             <input type="email" name="email" />
-            <h3>Message</h3>
+            <h3>Message2</h3>
             <textarea name="message" />
             <div className="send-btn">
               <button type="submit">Send</button>
