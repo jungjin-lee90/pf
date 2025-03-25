@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+      with:
+        persist-credentials: false  # token 방식 적용을 위해
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
@@ -44,7 +46,6 @@ jobs:
         git add kubernetes/k8s-deployment.yaml
         git commit -m "Update image tag to ${{ env.SHA_SHORT }}"
         git push origin main
-
 
     - name: Build Docker Image with Version Tag
       run: |
