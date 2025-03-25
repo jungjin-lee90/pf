@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/jungjin-lee90/pf.git
     targetRevision: HEAD
-    path: main/kubernetes
+    path: kubernetes
   destination:
     server: https://kubernetes.default.svc
     namespace: default
