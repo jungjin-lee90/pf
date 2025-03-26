@@ -37,26 +37,26 @@ export const projectItems = [
     date: "2023.07~현재",
   },
   {
-    "title": "🔄 GitHub와 Kubernetes를 이용한 CI/CD 구축",
+    "title": "🔄 GitHub와 ArgoCD 기반 GitOps CI/CD 구축",
     "category": "개인 미니프로젝트",
     "imageUrl": [
-      `${url}CI_CD.png`
+      "${url}CI_CD.png"
     ],
-    "description": "GitHub Actions와 Kubernetes를 활용하여 자동화된 CI/CD 파이프라인을 설계하고 구현한 프로젝트입니다.",
+    "description": "GitHub Actions와 ArgoCD를 활용해 Kubernetes 환경에서 GitOps 기반의 자동화된 CI/CD 파이프라인을 구축한 프로젝트입니다.",
     "features": [
-      "GitHub Actions를 통한 자동 빌드 및 테스트",
-      "Docker를 활용한 컨테이너 이미지 생성 및 관리",
-      "Kubernetes 클러스터에 자동 배포 설정",
-      "코드 변경 시 자동으로 파이프라인이 실행되어 배포까지 이루어지는 완전한 자동화 구현"
+      "GitHub Actions를 활용한 커밋 기반 Docker 이미지 자동 빌드 및 푸시",
+      "커밋 SHA 기반으로 Kubernetes 매니페스트 이미지 태그 자동 갱신",
+      "ArgoCD를 통한 Git 상태 감지 및 Kubernetes 클러스터 자동 동기화",
+      "동시 push 충돌 방지를 위한 concurrency 제어 및 git stash + rebase 전략 적용"
     ],
     "retrospective": [
-      "기존 수동 배포 과정에서 발생하던 인적 오류와 시간을 절감하기 위해 CI/CD 파이프라인 구축을 결정했습니다.",
-      "GitHub Actions의 다양한 기능을 활용하여 빌드, 테스트, 배포 과정을 자동화하였으며, 이를 통해 개발 효율성과 코드 품질을 향상시켰습니다.",
-      "Kubernetes 클러스터 환경에서의 배포 자동화를 통해 확장성과 안정성을 확보하였습니다.",
+      "수작업 배포 과정에서 발생하는 비효율과 실수를 줄이기 위해 CI/CD 파이프라인을 직접 설계하고 구축하였습니다.",
+      "GitOps 방식을 통해 배포 이력을 명확히 추적하고, 개발과 운영 간의 연속성을 확보할 수 있었습니다.",
+      "CI/CD 자동화를 통해 코드 변경 후 배포까지의 시간을 크게 단축하고, 안정적인 배포 환경을 구현하였습니다."
     ],
-    "techStack": "GitHub Actions, Docker, Kubernetes, YAML, Bash",
+    "techStack": "GitHub Actions, ArgoCD, Docker, Kubernetes, YAML, Bash",
     "date": "2025.03"
-  },
+  },  
   {
     title: "💬 NEW그룹웨어 프로젝트",
     category: "협동 프로젝트",
