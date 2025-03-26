@@ -42,13 +42,22 @@ jobs:
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
+        
+        # 변경사항 stash
+        git stash push -m "temp-changes"
+
+        # 최신 상태로 rebase
+        git pull --rebase https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git main
+
+        # stash 복원
+        git stash pop || echo "Nothing to pop"
 
         # 기존 origin 제거하고 재설정
         #git remote remove origin
         #git remote add origin https://x-access-token:${GH_TOKEN}@github.com/jungjin-lee90/pf.git
+
+        # 변경사항 커밋 및 푸시
         git add kubernetes/k8s-deployment.yaml
-        # 소스 충돌 방지를 위해 추가
-        git pull --rebase
         git commit -m "Update image tag to ${{ env.SHA_SHORT }} [skip ci]" # 여기서 무한 루프에 빠진다. commit 하면 자동으로 CI/CD 진행하기 때문 [skip ci]로 git action skip
         git push origin main
 
