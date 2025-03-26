@@ -44,7 +44,7 @@ jobs:
         git config user.email "github-actions[bot]@users.noreply.github.com"
         
         # 변경사항 stash
-        git stash push -m "temp-changes"
+        git stash push -m "temp-changes" || echo "No changes to stash"
 
         # 최신 상태로 rebase
         git pull --rebase https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git main
@@ -58,13 +58,13 @@ jobs:
 
         # 변경사항 커밋 및 푸시
         git add kubernetes/k8s-deployment.yaml
-        git commit -m "Update image tag to ${{ env.SHA_SHORT }} [skip ci]" # 여기서 무한 루프에 빠진다. commit 하면 자동으로 CI/CD 진행하기 때문 [skip ci]로 git action skip
-        git push origin main
+        git commit -m "Update image tag to ${{ env.SHA_SHORT }} [skip ci]" || echo "No changes to commit" # 여기서 무한 루프에 빠진다. commit 하면 자동으로 CI/CD 진행하기 때문 [skip ci]로 git action skip
+        git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
 
     - name: Build Docker Image with Version Tag
       run: |
         echo "Building Docker Image with tag: ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ env.SHA_SHORT }}"
-        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ env.SHA_SHORT }} .
+        docker build --pull --no-cache -t ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ env.SHA_SHORT }} .
 
     - name: Push Docker Image to Docker Hub
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/github_jj:${{ env.SHA_SHORT }}
