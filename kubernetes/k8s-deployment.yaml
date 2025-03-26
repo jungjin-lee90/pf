@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: jungjinlee90/github_jj:af6c8ea
+        image: jungjinlee90/github_jj:00235ef
         ports:
         - containerPort: 80
 
