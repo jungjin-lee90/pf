@@ -40,7 +40,7 @@ export const projectItems = [
     "title": "🔄 GitHub와 ArgoCD 기반 GitOps CI/CD 구축",
     "category": "개인 미니프로젝트",
     "imageUrl": [
-      "${url}CI_CD.png"
+      `${url}CI_CD.png`
     ],
     "description": "GitHub Actions와 ArgoCD를 활용해 Kubernetes 환경에서 GitOps 기반의 자동화된 CI/CD 파이프라인을 구축한 프로젝트입니다.",
     "features": [
