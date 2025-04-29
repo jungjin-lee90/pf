@@ -1,0 +1,14 @@
+# pv-kubecost-test-2.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-kubecost-test-2
+spec:
+  capacity:
+    storage: 32Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-path
+  hostPath:
+    path: "/mnt/data2"   # 기존 PV와 다른 경로로 지정!
+

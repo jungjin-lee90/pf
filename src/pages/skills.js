@@ -65,20 +65,20 @@ const Skills = () => {
           <Card className="tools-card">
             <h2 className="tools-title">etc</h2>
             <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "/assets/images/argocd.jpg"} />
+                <p>Argo CD</p>
+            </div>
+            <div className="skill-div">
+                <img src={process.env.PUBLIC_URL + "/assets/images/jenkins.ico"} />
+                <p>Jenkins</p>
+            </div>
+            <div className="skill-div">
                 <img src={process.env.PUBLIC_URL + "/assets/images/git.png"} />
                 <p>Git</p>
             </div>
             <div className="skill-div">
                 <img src={process.env.PUBLIC_URL + "/assets/images/svn.png"} />
                 <p>Svn</p>
-            </div>
-            <div className="skill-div">
-                <img src={process.env.PUBLIC_URL + "/assets/images/jira.jpeg"} />
-                <p>Jira</p>
-            </div>
-            <div className="skill-div">
-                <img src={process.env.PUBLIC_URL + "/assets/images/mysql.png"} />
-                <p>MySQL</p>
             </div>
           </Card>
         </div>

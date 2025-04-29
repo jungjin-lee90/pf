@@ -1,0 +1,42 @@
+{
+    "apiVersion": "v1",
+    "kind": "PersistentVolumeClaim",
+    "metadata": {
+        "annotations": {
+            "meta.helm.sh/release-name": "kubecost",
+            "meta.helm.sh/release-namespace": "kubecost",
+            "pv.kubernetes.io/bind-completed": "yes",
+            "pv.kubernetes.io/bound-by-controller": "yes"
+        },
+        "creationTimestamp": "2025-03-27T02:52:49Z",
+        "deletionGracePeriodSeconds": 0,
+        "deletionTimestamp": "2025-03-27T03:31:06Z",
+        "labels": {
+            "app": "prometheus",
+            "app.kubernetes.io/managed-by": "Helm",
+            "component": "server",
+            "heritage": "Helm",
+            "release": "kubecost"
+        },
+        "name": "kubecost-prometheus-server",
+        "namespace": "kubecost",
+        "resourceVersion": "337604",
+        "uid": "7a6e7d17-5fec-45c4-998f-047c40b7c5a6"
+    },
+    "spec": {
+        "accessModes": [
+            "ReadWriteOnce"
+        ],
+        "resources": {
+            "requests": {
+                "storage": "32Gi"
+            }
+        },
+        "storageClassName": "local-path",
+        "volumeMode": "Filesystem",
+        "volumeName": "pv-kubecost-test"
+    },
+    "status": {
+        "phase": "Lost"
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "apiVersion": "v1",
+    "kind": "PersistentVolumeClaim",
+    "metadata": {
+        "annotations": {
+            "meta.helm.sh/release-name": "kubecost",
+            "meta.helm.sh/release-namespace": "kubecost",
+            "pv.kubernetes.io/bind-completed": "yes",
+            "pv.kubernetes.io/bound-by-controller": "yes"
+        },
+        "creationTimestamp": "2025-03-27T02:52:49Z",
+        "deletionGracePeriodSeconds": 0,
+        "deletionTimestamp": "2025-03-27T03:30:01Z",
+        "labels": {
+            "app": "cost-analyzer",
+            "app.kubernetes.io/instance": "kubecost",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "cost-analyzer",
+            "helm.sh/chart": "cost-analyzer-2.6.5"
+        },
+        "name": "kubecost-cost-analyzer",
+        "namespace": "kubecost",
+        "resourceVersion": "337620",
+        "uid": "dbdea178-a523-4f76-94fb-f3ca61a0e09c"
+    },
+    "spec": {
+        "accessModes": [
+            "ReadWriteOnce"
+        ],
+        "resources": {
+            "requests": {
+                "storage": "32Gi"
+            }
+        },
+        "storageClassName": "local-path",
+        "volumeMode": "Filesystem",
+        "volumeName": "pv-kubecost-test-2"
+    },
+    "status": {
+        "phase": "Lost"
+    }
+}
