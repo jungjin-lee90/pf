@@ -41,16 +41,25 @@ pipeline {
     // === 이 단계부터는 Docker 명령어가 필요하므로, Jenkins 호스트에서 실행 ===
     stage('Docker Build & Deploy') {
         agent any
-            steps {
-                script {
-                    sh 'mkdir -p /tmp/buildcontext'
-                    sh 'cp -r ${WORKSPACE}/* /tmp/buildcontext'
-                }
-                sh 'docker build -t ${IMAGE_NAME}:latest /tmp/buildcontext'
-                sh 'docker rm -f ${CONTAINER_NAME} || true'
-                sh "docker run -d -p ${PORT}:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}:latest"
+        steps {
+            script {
+                // docker build는 host에서 수행
+                sh "docker build -t ${IMAGE_NAME}:latest ."
+
+                // 기존 컨테이너 제거
+                sh "docker rm -f ${CONTAINER_NAME} || true"
+
+                // docker run 시 WORKSPACE를 컨테이너에 마운트
+                sh """
+                    docker run -d \\
+                    -p ${PORT}:80 \\
+                    -v ${WORKSPACE}:${WORKSPACE} \\
+                    -w ${WORKSPACE} \\
+                    --name ${CONTAINER_NAME} \\
+                    ${IMAGE_NAME}:latest
+                """
             }
         }
-  }
+    }
 }
 
