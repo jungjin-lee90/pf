@@ -37,32 +37,23 @@ pipeline {
         sh 'npm run build || true'
       }
     }
-
-    stage('Docker Check') {
-        agent any
-        steps {
-            dir("${WORKSPACE}") {
-                sh 'docker --version'
-                sh 'docker ps'
-            }
-        }
-    }
-
 	
     // === 이 단계부터는 Docker 명령어가 필요하므로, Jenkins 호스트에서 실행 ===
     stage('Docker Build & Deploy') {
     agent any
         steps {
-            sh "docker build -t ${IMAGE_NAME}:latest ${WORKSPACE}"
-            sh "docker rm -f ${CONTAINER_NAME} || true"
-            sh """
-                docker run -d \\
-                    -p ${PORT}:80 \\
-                    -v ${WORKSPACE}:${WORKSPACE} \\
-                    -w ${WORKSPACE} \\
-                    --name ${CONTAINER_NAME} \\
-                    ${IMAGE_NAME}:latest
-            """
+            dir("${WORKSPACE}") {
+                sh "docker build -t ${IMAGE_NAME}:latest ${WORKSPACE}"
+                sh "docker rm -f ${CONTAINER_NAME} || true"
+                sh """
+                    docker run -d \\
+                        -p ${PORT}:80 \\
+                        -v ${WORKSPACE}:${WORKSPACE} \\
+                        -w ${WORKSPACE} \\
+                        --name ${CONTAINER_NAME} \\
+                        ${IMAGE_NAME}:latest
+                """
+            }
         }
     }
   }
