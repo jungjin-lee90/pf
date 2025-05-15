@@ -39,12 +39,15 @@ pipeline {
     }
 
     stage('Docker Check') {
-      agent any
-      steps {
-          sh 'docker --version'
-          sh 'docker ps'
-      }
+        agent any
+        steps {
+            dir('/') {
+                sh 'docker --version'
+                sh 'docker ps'
+            }
+        }
     }
+
 	
     // === 이 단계부터는 Docker 명령어가 필요하므로, Jenkins 호스트에서 실행 ===
     stage('Docker Build & Deploy') {
