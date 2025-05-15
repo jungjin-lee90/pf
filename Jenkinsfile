@@ -43,7 +43,7 @@ pipeline {
         agent any
         steps {
             script {
-                sh 'echo "WORKSPACE is: $WORKSPACE"'
+                sh 'echo WORKSPACE is: $WORKSPACE' 
                 // docker build → context를 명시적으로 전달
                 sh "docker build -t ${IMAGE_NAME}:latest ${WORKSPACE}"
 
