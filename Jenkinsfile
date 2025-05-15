@@ -53,7 +53,7 @@ pipeline {
                         sh 'echo "WORKSPACE is: $PWD"'
 
                         // docker build → 현재 디렉토리(.)를 context로 사용
-                        sh "docker build -t ${IMAGE_NAME}:latest ."
+                        sh "docker build -t ${IMAGE_NAME}:latest /var/lib/jenkins/workspace/github-project-fixed"
 
                         // 기존 컨테이너 제거
                         sh "docker rm -f ${CONTAINER_NAME} || true"
