@@ -42,26 +42,12 @@ pipeline {
         sh 'npm run build || true'
       }
     }
-
-    stage('Debug') {
-        steps {
-            echo "WORKSPACE is: ${env.WORKSPACE}"
-        }
-    }
-
-    stage('Debug Workspace Access') {
-        steps {
-            dir("${env.WORKSPACE}") {
-            sh 'pwd && ls -al'
-            }
-        }
-    }
 	
     // === 이 단계부터는 Docker 명령어가 필요하므로, Jenkins 호스트에서 실행 ===
     stage('Docker Build & Deploy') {
         agent any
             steps {
-                dir("${env.WORKSPACE}") {
+                dir('/var/lib/jenkins/workspace/github-project-fixed') {
                     script {
                         // 확인용 로그
                         sh 'echo "WORKSPACE is: $PWD"'
