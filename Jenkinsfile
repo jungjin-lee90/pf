@@ -1,4 +1,9 @@
 pipeline {
+  agent any
+  options {
+    disableConcurrentBuilds()  // ✅ 같은 브랜치의 빌드를 동시에 실행하지 않음
+  }
+  
   agent {
     docker {
       image 'node:20'   // node + npm 내장 이미지
