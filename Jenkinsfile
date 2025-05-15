@@ -16,12 +16,6 @@ pipeline {
     IMAGE_NAME = 'react-app'
     CONTAINER_NAME = 'react-app-container'
     PORT = '3000'
-  }
-
-  environment {
-    IMAGE_NAME = 'react-app'
-    CONTAINER_NAME = 'react-app-container'
-    PORT = '3000'
     NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
   }
 
