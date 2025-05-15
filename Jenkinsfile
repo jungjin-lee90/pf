@@ -45,31 +45,35 @@ pipeline {
 	
     // === 이 단계부터는 Docker 명령어가 필요하므로, Jenkins 호스트에서 실행 ===
     stage('Docker Build & Deploy') {
-        agent any
-            steps {
-                dir('/var/lib/jenkins/workspace/github-project-fixed') {
-                    script {
-                        // 확인용 로그
-                        sh 'echo "WORKSPACE is: $PWD"'
+    agent any  // 반드시 호스트에서 실행
+    steps {
+        dir('/var/lib/jenkins/workspace/github-project-fixed') {
+        script {
+            // 확인용 로그
+            sh 'echo "PWD: $PWD"'
+            sh 'echo "PATH: $PATH"'
 
-                        // docker build → 현재 디렉토리(.)를 context로 사용
-                        sh "docker build -t ${IMAGE_NAME}:latest /var/lib/jenkins/workspace/github-project-fixed"
+            // docker 명령 유효성 점검
+            sh 'echo "Checking docker CLI availability..."'
+            sh 'which docker || echo "❌ which docker: not found"'
+            sh 'docker --version || echo "❌ docker --version: failed"'
+            sh 'docker info || echo "❌ docker info: failed"'
 
-                        // 기존 컨테이너 제거
-                        sh "docker rm -f ${CONTAINER_NAME} || true"
-
-                        // docker run 시 host의 WORKSPACE를 마운트
-                        sh """
-                        docker run -d \\
-                            -p ${PORT}:80 \\
-                            -v ${env.WORKSPACE}:${env.WORKSPACE} \\
-                            -w ${env.WORKSPACE} \\
-                            --name ${CONTAINER_NAME} \\
-                            ${IMAGE_NAME}:latest
-                        """
-                    }
-                }
-            }
+            // 실제 build 수행
+            sh "docker build -t ${IMAGE_NAME}:latest ."
+            sh "docker rm -f ${CONTAINER_NAME} || true"
+            sh """
+            docker run -d \\
+                -p ${PORT}:80 \\
+                -v ${env.WORKSPACE}:${env.WORKSPACE} \\
+                -w ${env.WORKSPACE} \\
+                --name ${CONTAINER_NAME} \\
+                ${IMAGE_NAME}:latest
+            """
         }
+        }
+    }
+    }
+
     }
 }
