@@ -58,8 +58,8 @@ pipeline {
                     --name ${CONTAINER_NAME} \\
                     ${IMAGE_NAME}:latest
                 """
+                }
             }
         }
     }
 }
-
