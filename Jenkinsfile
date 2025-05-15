@@ -1,5 +1,5 @@
 pipeline {
-  agent none  // 🔥 파이프라인 전체에는 agent 설정하지 않음
+  agent none  // 파이프라인 전체에는 agent 설정하지 않음
 
   options {
     disableConcurrentBuilds()
@@ -31,15 +31,13 @@ pipeline {
     }
 
     stage('Docker Build & Deploy') {
-      agent any  // ✅ 여기서는 Jenkins 호스트에서 실행
+      agent any  // 여기서는 Jenkins 호스트에서 실행
       steps {
         dir('/var/lib/jenkins/workspace/github-project-fixed') {
           script {
             // 디버그
             sh 'echo "PWD: $PWD"'
             sh 'echo "PATH: $PATH"'
-            sh 'which docker || echo "❌ which docker: not found"'
-            sh 'docker --version || echo "❌ docker --version: failed"'
 
             // Docker 작업
             sh "docker build -t ${IMAGE_NAME}:latest ."
