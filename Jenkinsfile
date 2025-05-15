@@ -37,13 +37,19 @@ pipeline {
         sh 'npm run build || true'
       }
     }
+
+    stage('Debug') {
+        steps {
+            echo "WORKSPACE is: ${env.WORKSPACE}"
+        }
+    }
+
 	
     // === 이 단계부터는 Docker 명령어가 필요하므로, Jenkins 호스트에서 실행 ===
     stage('Docker Build & Deploy') {
         agent any
         steps {
             script {
-                sh 'echo WORKSPACE is: $WORKSPACE' 
                 // docker build → context를 명시적으로 전달
                 sh "docker build -t ${IMAGE_NAME}:latest ${WORKSPACE}"
 
