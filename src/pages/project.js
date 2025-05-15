@@ -1,5 +1,5 @@
 import './project.css';
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 import Card from '../component/card';
 import { projectItems } from "../component/ProjectContents";
 

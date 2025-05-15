@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import Card from "../component/card";
 import "./qualification.css";
 
