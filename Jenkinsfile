@@ -41,7 +41,7 @@ pipeline {
     stage('Docker Check') {
         agent any
         steps {
-            dir(${WORKSPACE}) {
+            dir("${WORKSPACE}") {
                 sh 'docker --version'
                 sh 'docker ps'
             }
