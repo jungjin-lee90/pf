@@ -1,10 +1,15 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'node:18'   // node + npm 내장 이미지
+      args '-v /var/run/docker.sock:/var/run/docker.sock' // 필요시 docker-in-docker
+    }
+  }
 
   environment {
-    IMAGE_NAME = "react-app"
-    CONTAINER_NAME = "react-app-container"
-    PORT = "3000"
+    IMAGE_NAME = 'react-app'
+    CONTAINER_NAME = 'react-app-container'
+    PORT = '3000'
   }
 
   stages {
@@ -28,31 +33,21 @@ pipeline {
 
     stage('Docker Build') {
       steps {
-        sh "docker build -t ${IMAGE_NAME}:${BRANCH_NAME} ."
+        sh "docker build -t ${IMAGE_NAME}:latest ."
       }
     }
 
-    stage('Deploy (Only main)') {
+    stage('Deploy') {
       when {
         branch 'main'
       }
       steps {
         sh """
           docker rm -f ${CONTAINER_NAME} || true
-          docker run -d --name ${CONTAINER_NAME} -p ${PORT}:80 ${IMAGE_NAME}:main
+          docker run -d -p ${PORT}:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}:latest
         """
-      }
-    }
-
-    stage('Skip Deploy (Non-main)') {
-      when {
-        not {
-          branch 'main'
-        }
-      }
-      steps {
-        echo "Not deploying since branch is not 'main'."
       }
     }
   }
 }
+
