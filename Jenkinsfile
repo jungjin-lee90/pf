@@ -44,6 +44,13 @@ pipeline {
         }
     }
 
+    stage('Debug Workspace Access') {
+        steps {
+            dir("${env.WORKSPACE}") {
+            sh 'pwd && ls -al'
+            }
+        }
+    }
 	
     // === 이 단계부터는 Docker 명령어가 필요하므로, Jenkins 호스트에서 실행 ===
     stage('Docker Build & Deploy') {
