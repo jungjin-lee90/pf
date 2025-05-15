@@ -3,7 +3,6 @@ pipeline {
     docker {
       image 'node:20'
       args '-v /var/run/docker.sock:/var/run/docker.sock'
-      label 'any'
       customWorkspace '/var/lib/jenkins/workspace/github-project-fixed'
     }
   }
