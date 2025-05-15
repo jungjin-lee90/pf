@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'node:18'   // node + npm 내장 이미지
+      image 'node:20'   // node + npm 내장 이미지
       args '-v /var/run/docker.sock:/var/run/docker.sock' // 필요시 docker-in-docker
     }
   }
@@ -10,12 +10,19 @@ pipeline {
     IMAGE_NAME = 'react-app'
     CONTAINER_NAME = 'react-app-container'
     PORT = '3000'
+    NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
   }
 
   stages {
     stage('Checkout') {
       steps {
         checkout scm
+      }
+    }
+
+    stage('Prepare NPM Cache') {
+      steps {
+        sh 'mkdir -p $NPM_CONFIG_CACHE'
       }
     }
 
