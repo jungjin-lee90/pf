@@ -37,19 +37,13 @@ pipeline {
         sh 'npm run build || true'
       }
     }
-
-    stage('Docker Build') {
-      steps {
-        sh "docker build -t ${IMAGE_NAME}:latest ."
-      }
-    }
-
-    stage('Deploy') {
-      when {
-        branch 'main'
-      }
+	
+    // === 이 단계부터는 Docker 명령어가 필요하므로, Jenkins 호스트에서 실행 ===
+    stage('Docker Build & Deploy') {
+      agent any // 기본 Jenkins 노드에서 실행
       steps {
         sh """
+          docker build -t ${IMAGE_NAME}:latest .
           docker rm -f ${CONTAINER_NAME} || true
           docker run -d -p ${PORT}:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}:latest
         """
