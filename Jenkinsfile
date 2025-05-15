@@ -34,7 +34,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'npm run build || echo "Build warnings ignored"'
+        sh 'npm run build || true'
       }
     }
 
