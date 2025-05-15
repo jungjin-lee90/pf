@@ -43,8 +43,8 @@ pipeline {
         agent any
         steps {
             script {
-                // docker build는 host에서 수행
-                sh "docker build -t ${IMAGE_NAME}:latest ."
+                // docker build → context를 명시적으로 전달
+                sh "docker build -t ${IMAGE_NAME}:latest ${WORKSPACE}"
 
                 // 기존 컨테이너 제거
                 sh "docker rm -f ${CONTAINER_NAME} || true"
