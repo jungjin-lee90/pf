@@ -50,11 +50,9 @@ pipeline {
     stage('Docker Build & Deploy') {
       agent any // 기본 Jenkins 노드에서 실행
       steps {
-        sh """
-          docker build -t ${IMAGE_NAME}:latest .
-          docker rm -f ${CONTAINER_NAME} || true
-          docker run -d -p ${PORT}:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}:latest
-        """
+        sh 'docker build -t ${IMAGE_NAME}:latest .'
+        sh 'docker rm -f ${CONTAINER_NAME} || true'
+        sh 'docker run -d -p ${PORT}:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}:latest'
       }
     }
   }
